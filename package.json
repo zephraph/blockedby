@@ -1,0 +1,50 @@
+{
+  "name": "blockedby",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Justin Bennett <zephraph@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/**/*",
+    "type-check": "tsc --pretty --noEmit",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "probot": "^9.2.13",
+    "probot-config": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/nock": "^10.0.3",
+    "@types/node": "^12.0.4",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "nock": "^10.0.6",
+    "prettier": "^1.17.1",
+    "smee-client": "^1.1.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1",
+    "typescript-eslint-parser": "^22.0.0"
+  }
+}
